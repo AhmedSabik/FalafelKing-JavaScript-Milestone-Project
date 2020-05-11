@@ -1,0 +1,355 @@
+/* ---- Basic Style Setup ----- */ 
+
+/* Google font Lato embedded */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap;');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap'); 
+
+
+/* CSS custom properties defined on the root pseudo-class, so that it can be applied globally across the HTML document */
+:root {
+    --primary-color: #f09d51; 
+    --main-white: #fff;
+    --main-black: #222;
+    --main-grey: #ececec; 
+    --main-spacing: 0.1rem;
+    --main-transition: all 0.3s linear;
+}
+
+/* Universal selector for all elements to have the following properties */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Properties for the whole body based on variables from root */
+body {
+    color: var(--main-black);
+    background: ver(--main-white);
+}
+
+/* ---- End of Basic Style Setup ----- */ 
+
+
+/* ---- Navbar Styles ----- */ 
+
+.navbar {
+    position:sticky;
+    top:0;
+    height:70px;
+    width:100%;
+    /* flex to align navbar elements in the center*/
+    display:flex;
+    align-items:center;
+    background:#e7e2dd;
+    z-index:1;
+}
+
+.navbar-center {
+    width:100%;
+    max-width:1170px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 1.5rem;
+}
+
+.cart-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+}
+
+.cart-item {
+    position:absolute;
+    top:-8px;
+    right:-12px;
+    background:var(--primary-color);
+    padding:0 5px;
+    border-radius:30%;
+    color:var(--main-white);
+}
+
+/* ---- End of Navbar Styles 32 mins ----- */ 
+
+
+
+/* ---- Hero Styles ----- */ 
+
+.hero {
+    min-height: calc(100vh - 70px);
+    /* to fill 100% of the screen minus the 60px of the navbar */
+    background: url("assets/images/hero-bcg.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    text-align: center;
+    background:rgba(225, 225, 225, 0.0);
+    display:inline-block;
+    padding:2rem;
+}
+
+.face-logo-transparent {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1rem;
+    width: 75%;
+}
+
+.banner-title {
+    font-family: "Amatic", sans-serif;
+    font-weight:700;
+    color: #0066cc;
+    text-transform: uppercase;
+    letter-spacing: var(--main-spacing);
+    margin-bottom: 3rem;
+}
+
+.banner-btn {
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: var(--main-spacing);
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    font-weight:700;
+    background: var(--primary-color);
+    color: var(--main-black);
+    border: 2px solid var(--primary-color);
+    transition: var(--main-transition);
+    cursor: pointer;
+}
+
+.banner-btn:hover {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+
+/* ---- End of Hero Styles ----- */ 
+
+
+/* ---------- Products ---------- */ 
+
+.products {
+    padding: 4rem 0;
+    background:#f4f2f0;
+}
+
+.section-title h2 {
+    text-align: center;
+    font-family: "Amatic", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--main-spacing);
+}
+
+/* Parents Div for All Products*/
+
+.products-center {
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 1170px;
+    display: grid;
+    /*repeat function, each column should be min 260px, and if there is space, 1 fraction should be used, in order for the screen to be responsive*/
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); 
+    /*distance between products*/
+    grid-column-gap: 1.5rem;
+    /*distance between rows*/
+    grid-raw-gap: 2rem;
+}
+
+/* End of Parents Div for All Products*/
+
+.img-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.basket-btn {
+    position: absolute;
+    top: 70%;
+    right: 0;
+    background: var(--primary-color);
+    border: none;
+    text-transform: uppercase;
+    padding: 0.5rem 0.75rem;
+    letter-spacing: var(--main-spacing);
+    font-family: "Lato", sans-serif;
+    font-weight:bold;
+    transition: var(--main-transition);
+    /*to hide butoon to the right*/
+    transform:translateX(101%);
+    cursor: pointer;
+}
+
+.single-product .fa-shopping-basket {
+    margin-right: 0.2rem;
+    font-size: 18px;
+}
+
+.basket-btn:hover {
+    color: var(--main-white);
+}
+
+.img-container:hover .basket-btn {
+    transform:translateX(0);
+}
+
+.product-img {
+    display: block;
+    width: 100%;
+    min-height: 12rem;
+    transition: var(--main-transition);
+}
+
+.img-container:hover .product-img {
+    opacity: 0.5;
+}
+
+.single-product h3 {
+   font-family: "Amatic",  sans-serif;
+   font-size: 1.1rem;
+   margin-top: 1rem;
+   text-transform: capitalize;
+   text-align: center;
+}
+
+.single-product h4 {
+    font-family: "Lato",  sans-serif;
+    margin-top: 0.7rem;
+    letter-spacing: var(--main-spacing);
+    color: var(--primary-color);
+    text-align: center;
+}
+
+/* ---------- End of Products ---------- */ 
+
+
+/* --------------------- Shopping Basket --------------------- */ 
+
+.basket-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    transition: var(--mainTransition);
+    background: rgb(240, 157, 81, 0.5);
+    z-index: 2;
+    /*transform to be commented and commented out using Javascript*/
+    visibility: hidden;
+}
+
+.basket {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    z-index: 3;
+    background: rgb(231, 226, 221);
+    padding: 1.5rem;
+    transition: var(--mainTransition);
+    /*transform to be commented and commented out using Javascript*/
+    transform: translateX(100%);
+}
+
+.showBasket {
+    transform: translateX(0);
+}
+
+.transparentBcg {
+    visibility: visible;
+}
+
+/*when screen size becomes 768px, basket size will become 30vw, with min 450px*/
+@media screen and (min-width: 768px) {
+    .basket {
+        width: 30vw;
+        min-width: 450px;
+    }
+}
+
+.close-basket {
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+.basket h2 {
+    font-family: "Lato",  sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: var(--main-spacing);
+    margin-bottom: 2rem; 
+}
+
+
+/* ------ Basket Item ------ */
+
+.basket-item {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-column-gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.basket-item h4 {
+    font-family: "Lato",  sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: var(--main-spacing);
+}
+
+.basket-item h5 {
+    font-family: "Lato",  sans-serif;
+    margin: 0.5rem 0;
+    letter-spacing: var(--main-spacing);
+}
+
+.item-amount {
+   font-family: "Lato",  sans-serif;
+   text-align: center;
+}
+
+.remove-item {
+    font-family: "Lato",  sans-serif;
+    color: #808080;
+    cursor: pointer;
+}
+
+.fa-chevron-up,
+.fa-chevron-down {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+
+/* ------ End of Basket Item ------ */
+
+
+
+.basket-footer {
+    margin-top: 2rem;
+    letter-spacing: var(--main-spacing);
+    text-align: center;
+}
+
+.basket-footer h3 {
+    font-family: "Lato",  sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* --------------------- End of Shopping Basket --------------------- */ 
+

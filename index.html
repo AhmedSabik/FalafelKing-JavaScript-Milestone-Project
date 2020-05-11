@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Falafel King</title>
+    
+     <!-- font awesome link -->
+    <script src="https://kit.fontawesome.com/32bdbec95a.js" crossorigin="anonymous"></script> 
+    
+    <!-- css file link --> 
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    
+</head>
+<body>
+    
+   
+    <!-- Navbar -->  
+    
+    <nav class="navbar"> 
+    
+    <div class="navbar-center">
+        
+        <span class="nav-icon">
+            <i class="fas fa-bars"></i>
+        </span>
+        
+        <img src="assets/images/FalafelKingLogo.svg" alt="Flafel King Logo"></img>
+        
+        <div class="cart-btn">
+            <span class="nav-icon">
+                <i class="fas fa-shopping-basket"></i>
+            </span>
+            <div class="cart-item">0</div>
+        </div>
+        
+    </div>
+    
+    </nav> 
+    
+    <!-- End of Navbar --> 
+    
+    <!-- Hero -->
+    
+    <header class="hero">
+        
+        <div class="banner">
+            
+           
+            <img class="face-logo-transparent" src="assets/images/face-logo-transparent.svg" alt="Flafel King Logo"></img> 
+            
+            
+            <h2 class="banner-title">handcrafted, healthy, delicious</h2>
+            <button class="banner-btn">shop now</button>
+            
+        </div>
+        
+    </header>
+    
+    <!-- End of Hero -->
+    
+    
+    
+    <!-- Products -->
+    
+    <section class="products">
+        
+        
+        <div class="section-title">
+            <h2>our falafel collection</h2>
+        </div>
+        
+        <div class="products-center">
+            
+            <!-- Single Product -->
+            
+            <article class="single-product">
+                
+                <div class="img-container">
+                    
+                    <img src="assets/images/product-1.jpg" alt="product" class="product-img"></img>
+                    
+                    <button class="basket-btn" data-id="1">
+                        <i class="fas fa-shopping-basket"></i>
+                        add to basket
+                    </button>
+                    
+                </div>
+                
+                <h3>classic flavour</h3>
+                
+                <h4>£3,60</h4>
+                
+            </article>
+        
+            <!-- End of Single Product -->
+            
+            
+            
+        </div>
+        
+        
+    </section>
+    
+    <!-- End of Products -->
+    
+    
+    <!-- Shopping Basket -->
+    
+    <div class="basket-overlay">
+        
+        <div class="basket">
+            
+            <span class="close-basket">
+                <i class="fas fa-window-close"></i>
+            </span>
+            
+            <h2>your basket</h2>
+            
+            <div class="basket-content">
+                
+                <!-- basket item -->
+                
+                <div class="basket-item">
+                    
+                    <img src="assets/images/product-1.jpg" alt="product" class="product-img"></img>
+                    
+                    <div>
+                        <h4>classic flavour</h4>
+                        <h5>£3,60</h5>
+                        <span class="remove-item">remove</span>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                        <p class="item-amount">1</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                
+                </div>
+                
+                <!-- end of basket item -->
+                
+                
+            </div>
+            
+            <div class="basket-footer">
+                
+                <h3>your total: £<span class="basket-total">0</span></h3>
+                
+                <button class="clear-basket banner-btn">clear cart</button>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    
+    <!-- End of Shopping Basket -->
+    
+    
+    
+    <!-- javascript file link -->
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
