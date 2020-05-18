@@ -1,8 +1,7 @@
 /* ---- Basic Style Setup ----- */ 
 
 /* Google font Lato embedded */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap;');
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Lato:wght@400;700&display=swap');
 
 
 /* CSS custom properties defined on the root pseudo-class, so that it can be applied globally across the HTML document */
@@ -64,7 +63,7 @@ body {
     font-size: 1.5rem;
 }
 
-.cart-item {
+.cart-items {
     position:absolute;
     top:-8px;
     right:-12px;
@@ -105,19 +104,20 @@ body {
 }
 
 .banner-title {
-    font-family: "Amatic", sans-serif;
+    font-family: 'Amatic SC', cursive;
     font-weight:700;
+    font-size: 3rem;
     color: #0066cc;
     text-transform: uppercase;
     letter-spacing: var(--main-spacing);
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .banner-btn {
     padding: 1rem 3rem;
     text-transform: uppercase;
     letter-spacing: var(--main-spacing);
-    font-family: "Lato", sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 1rem;
     font-weight:700;
     background: var(--primary-color);
@@ -145,10 +145,9 @@ body {
 
 .section-title h2 {
     text-align: center;
-    font-family: "Amatic", sans-serif;
-    font-size: 2.5rem;
-    margin-bottom: 5rem;
-    text-transform: capitalize;
+    font-family: 'Amatic SC', cursive;
+    font-size: 4.5rem;
+    margin-bottom: 4rem;
     letter-spacing: var(--main-spacing);
 }
 
@@ -183,7 +182,7 @@ body {
     text-transform: uppercase;
     padding: 0.5rem 0.75rem;
     letter-spacing: var(--main-spacing);
-    font-family: "Lato", sans-serif;
+    font-family: 'Lato', sans-serif;
     font-weight:bold;
     transition: var(--main-transition);
     /*to hide butoon to the right*/
@@ -216,18 +215,17 @@ body {
 }
 
 .single-product h3 {
-   font-family: "Amatic",  sans-serif;
-   font-size: 1.1rem;
+   font-family: 'Amatic SC', cursive;
+   font-size: 2rem;
    margin-top: 1rem;
-   text-transform: capitalize;
    text-align: center;
 }
 
 .single-product h4 {
-    font-family: "Lato",  sans-serif;
+    font-family: 'Lato', sans-serif;
     margin-top: 0.7rem;
     letter-spacing: var(--main-spacing);
-    color: var(--primary-color);
+    color: #eb7c14;
     text-align: center;
 }
 
@@ -286,7 +284,7 @@ body {
 }
 
 .basket h2 {
-    font-family: "Lato",  sans-serif;
+    font-family: 'Lato', sans-serif;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: var(--main-spacing);
@@ -305,25 +303,25 @@ body {
 }
 
 .basket-item h4 {
-    font-family: "Lato",  sans-serif;
+    font-family: 'Lato', sans-serif;
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: var(--main-spacing);
 }
 
 .basket-item h5 {
-    font-family: "Lato",  sans-serif;
+    font-family: 'Lato', sans-serif;
     margin: 0.5rem 0;
     letter-spacing: var(--main-spacing);
 }
 
 .item-amount {
-   font-family: "Lato",  sans-serif;
+   font-family: 'Lato', sans-serif;
    text-align: center;
 }
 
 .remove-item {
-    font-family: "Lato",  sans-serif;
+    font-family: 'Lato', sans-serif;
     color: #808080;
     cursor: pointer;
 }
@@ -346,10 +344,218 @@ body {
 }
 
 .basket-footer h3 {
-    font-family: "Lato",  sans-serif;
+    font-family: 'Lato', sans-serif;
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
 
 /* --------------------- End of Shopping Basket --------------------- */ 
 
+
+
+
+/* --------------------- Footer --------------------- */
+ 
+footer{
+	/*position: fixed;*/
+	bottom: 0;
+}
+ 
+@media (max-height:800px){
+	footer { position: static; }
+	header { padding-top:40px; }
+}
+ 
+ 
+ 
+.footer-distributed{
+	background-color: #3c332a;
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font-family: 'Lato', sans-serif;
+	font-size: 16px;
+	padding: 50px 50px 60px 50px;
+	letter-spacing: var(--main-spacing);
+}
+
+.footer-max-width {
+    max-width:1170px;
+    margin: 0 auto;
+ }
+ 
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+	display: inline-block;
+	vertical-align: top;
+}
+ 
+/* ------ Footer left ------ */
+ 
+.footer-distributed .footer-left{
+	width: 30%;
+}
+
+ 
+.footer-distributed h3{
+	color:  #ffffff;
+	font: normal 36px 'Cookie', cursive;
+	margin: 0;
+}
+ 
+/* FalafelKing logo */
+ 
+.footer-distributed .footer-left img{
+	width: 50%;
+}
+ 
+.footer-distributed h3 span{
+	color:  #e0ac1c;
+}
+ 
+/* Footer links */
+ 
+.footer-distributed .footer-links{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+}
+ 
+.footer-distributed .footer-links a{
+	display:inline-block;
+	text-transform: uppercase;
+	line-height: 1.8;
+	text-decoration: none;
+	color: inherit;
+	transition: var(--mainTransition);
+}
+
+.footer-distributed .footer-links a:hover {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+ 
+.footer-distributed .footer-company-copyright {
+	color:  #8f9296;
+	margin: 0;
+}
+ 
+/* ------ Footer Center ------ */
+ 
+.footer-distributed .footer-center{
+	width: 35%;
+}
+ 
+ 
+.footer-distributed .footer-center i{
+    background:#2d2620;
+	color: #ffffff;
+	font-size: 17px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+ 
+.footer-distributed .footer-center i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+ 
+.footer-distributed .footer-center p{
+	display: inline-block;
+	color: #ffffff;
+	vertical-align: middle;
+	margin:0;
+}
+ 
+.footer-distributed .footer-center p span{
+	display:block;
+	text-transform: capitalize;
+	font-weight: 400;
+	font-size:14px;
+	line-height:2;
+}
+ 
+.footer-distributed .footer-center p a{
+	color: var(--primary-color);
+	text-decoration: none;
+}
+
+/* ------ End of Footer Center ------ */
+ 
+ 
+/* ------ Footer Right ------ */
+ 
+.footer-distributed .footer-right{
+	width: 30%;
+}
+ 
+.footer-distributed .footer-company-about{
+	line-height: 20px;
+	color:  #92999f;
+	font-size: 13px;
+	margin: 0;
+}
+ 
+.footer-distributed .footer-company-about span{
+    text-transform: uppercase;
+	display: block;
+	color:  #ffffff;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+ 
+.footer-distributed .footer-icons{
+	margin-top: 25px;
+}
+ 
+.footer-distributed .footer-icons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	background-color: #2d2620;
+	border-radius: 2px;
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+.footer-distributed .footer-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* ------ End of Footer Right ------ */
+ 
+/* ------ Responsive Footer ------ */
+ 
+ 
+@media (max-width: 880px) {
+ 
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-center,
+	.footer-distributed .footer-right{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+ 
+	.footer-distributed .footer-center i{
+		margin-left: 0;
+	}
+ 
+}
+
+/* ------ End of Responsive Footer ------ */ 
+
+
+/* --------------------- End of Footer --------------------- */
