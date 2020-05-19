@@ -223,7 +223,8 @@ body {
 
 .single-product h4 {
     font-family: 'Lato', sans-serif;
-    margin-top: 0.7rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
     letter-spacing: var(--main-spacing);
     color: #eb7c14;
     text-align: center;
