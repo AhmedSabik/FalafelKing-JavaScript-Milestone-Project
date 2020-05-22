@@ -106,30 +106,30 @@ class UI {
         
         buttonsDOM = buttons;
         
-        buttons.forEach(button =>{
+        buttons.forEach(button => {
             let id = button.dataset.id;
             //Setup the inCart variable, use find method for items in shopping basket
             let inCart = cart.find(item => item.id === id);
             //If the item is in the basket, this what I want to do
-            if(inCart){
+            if (inCart) {
                 //Use InnerText property to return a desired text content of the specified node, and all its descendants
                 button.innerText = "In Basket";
                 button.disabled = true;
             }
-            
-                button.addEventListener("click", (event)=>{
-                    event.target.innerText = "In Basket";
-                    event.target.disabled = true;
-                    //Get prodcut from products, based on the id
-                    let cartItem = Storage.getProduct(id);
-                    console.log(cartItem); 
-                    //Add product to the basket
-                    //Save cart in local storage 
-                    //Set cart values 
-                    //Display cart item
-                    //Show the cart
-                })
-        })
+        
+            button.addEventListener("click", (event) => {
+                event.target.innerText = "In Basket";
+                event.target.disabled = true;
+                //Get prodcut from products, based on the id
+                let cartItem = Storage.getProduct(id);
+                console.log(cartItem);
+                //Add product to the basket
+                //Save cart in local storage 
+                //Set cart values 
+                //Display cart item
+                //Show the cart
+            });
+        });
     }
     
 }
@@ -152,7 +152,7 @@ class Storage {
     
     //create static method, method name getProduct, with id as an argument. Products is the variable, I am parsing JSON because it's stored as a string
     static getProduct(id){
-        let products = JSON.parse(localStorage.getItem(localStorage.getItem("products"));
+        let products = JSON.parse(localStorage.getItem(localStorage.getItem("products")));
         return products.find(product => product.id === id);
     }
 }
@@ -181,3 +181,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
     
 });
+
+
+
+//2:14:00 
