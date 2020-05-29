@@ -120,16 +120,57 @@ class UI {
             button.addEventListener("click", (event) => {
                 event.target.innerText = "In Basket";
                 event.target.disabled = true;
-                //Get prodcut from products, based on the id
-                let cartItem = Storage.getProduct(id);
-                console.log(cartItem);
+                
+                //Get prodcut from products, based on the id, using spread operator, and add amount of items purchased
+                let cartItem = {...Storage.getProduct(id), amount:1};
+                
                 //Add product to the basket
-                //Save cart in local storage 
+                cart = [...cart, cartItem];
+                
+                //Save cart in local storage
+                Storage.saveCart(cart);
+                
                 //Set cart values 
+                this.setCartValues(cart);
+                
                 //Display cart item
+                this.addCartItem(cartItem);
+                
                 //Show the cart
             });
         });
+    }
+    
+    setCartValues(cart) {
+        let tempTotal = 0;
+        let itemsTotal = 0;
+        cart.map(item =>{
+            tempTotal += item.price * item.amount;
+            itemsTotal += item.amount;
+        });
+        
+        cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+        cartItems.innerText = itemsTotal; 
+    }
+    
+    addCartItem(item) {
+        const div = document.createElement("div"); 
+        div.classList.add("basket-item");
+        div.innerHTML = `
+        <img src=${item.image} alt="product" class="product-img"></img>
+                    
+                    <div>
+                        <h4>classic flavour</h4>
+                        <h5>£3,60</h5>
+                        <span class="remove-item">remove</span>
+                    </div>
+                    
+                    <div>
+                        <i class="fas fa-chevron-up"></i>
+                        <p class="item-amount">1</p>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+        `
     }
     
 }
@@ -152,9 +193,15 @@ class Storage {
     
     //create static method, method name getProduct, with id as an argument. Products is the variable, I am parsing JSON because it's stored as a string
     static getProduct(id){
-        let products = JSON.parse(localStorage.getItem(localStorage.getItem("products")));
+        let products = JSON.parse(localStorage.getItem("products"));
         return products.find(product => product.id === id);
     }
+   
+   //create static method, method name saveCart and then use Storage setItem() Method
+   static saveCart(cart) {
+       localStorage.setItem("cart", JSON.stringify(cart));
+   }
+    
 }
 
 // The HTML DOM EventListener, within instances are created, to call the functions
