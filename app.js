@@ -156,21 +156,26 @@ class UI {
     addCartItem(item) {
         const div = document.createElement("div"); 
         div.classList.add("basket-item");
+        //Use template literals
         div.innerHTML = `
         <img src=${item.image} alt="product" class="product-img"></img>
                     
                     <div>
-                        <h4>classic flavour</h4>
-                        <h5>£3,60</h5>
-                        <span class="remove-item">remove</span>
+                        <h4>${item.title}</h4>
+                        <h5>£${item.price}</h5>
+                        //pass datai-d attribute to item.id value
+                        <span class="remove-item" data-id=${item.id}>remove</span>
                     </div>
                     
                     <div>
-                        <i class="fas fa-chevron-up"></i>
-                        <p class="item-amount">1</p>
-                        <i class="fas fa-chevron-down"></i>
+                        <i class="fas fa-chevron-up" data-id=${item.id}></i>
+                        <p class="item-amount">${item.amount}</p>
+                        <i class="fas fa-chevron-down" data-id=${item.id}></i>
                     </div>
-        `
+        `;
+        //Use HTML DOM appendChild() Method
+        cartContent.appendChild(div);
+        console.log(cartContent);
     }
     
 }
@@ -231,4 +236,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-//2:14:00 
+//2:30:00 
