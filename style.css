@@ -65,6 +65,8 @@ body {
 
 .cart-items {
     position:absolute;
+    font-family: 'Lato', sans-serif;
+    font-weight:700;
     top:-8px;
     right:-12px;
     background:var(--primary-color);
@@ -263,10 +265,12 @@ body {
     transform: translateX(100%);
 }
 
+/* -- to be used in app.js to show shopping basket -- */
 .showBasket {
     transform: translateX(0);
 }
 
+/* -- to be used in app.js to show shopping basket -- */
 .transparentBcg {
     visibility: visible;
 }

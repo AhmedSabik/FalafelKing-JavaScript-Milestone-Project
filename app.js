@@ -4,11 +4,11 @@ const cartBtn = document.querySelector('.cart-btn');
 
 const closeCartBtn = document.querySelector('.close-basket'); 
 
-const clearCart = document.querySelector('.clear-basket'); 
+const clearCartBtn = document.querySelector('.clear-basket'); 
 
-const clearDOM = document.querySelector('.basket'); 
+const cartDOM = document.querySelector('.basket'); 
 
-const clearOverlay = document.querySelector('.basket-overlay'); 
+const cartOverlay = document.querySelector('.basket-overlay'); 
 
 const cartItems = document.querySelector('.cart-items'); 
 
@@ -94,8 +94,8 @@ class UI {
         
             <!-- End of Single Product -->
            
-           `
-       })
+           `;
+       });
        productsDOM.innerHTML= result;
     }
     
@@ -137,6 +137,7 @@ class UI {
                 this.addCartItem(cartItem);
                 
                 //Show the cart
+                this.showCart(); 
             });
         });
     }
@@ -163,7 +164,6 @@ class UI {
                     <div>
                         <h4>${item.title}</h4>
                         <h5>£${item.price}</h5>
-                        //pass datai-d attribute to item.id value
                         <span class="remove-item" data-id=${item.id}>remove</span>
                     </div>
                     
@@ -175,9 +175,11 @@ class UI {
         `;
         //Use HTML DOM appendChild() Method
         cartContent.appendChild(div);
-        console.log(cartContent);
     }
-    
+    showCart() {
+       cartOverlay.classList.add("transparentBcg");
+       cartDOM.classList.add("showBasket");
+    }
 }
 
 
@@ -190,7 +192,7 @@ class UI {
 
 class Storage {
     
-    //Creating a static method to save products 
+    // Creating a static method to save products 
     static saveProducts(products){
         //setItem() method sets the value of the specified Storage Object item
         localStorage.setItem("products", JSON.stringify(products));
@@ -222,7 +224,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     products.getProducts().then(products => {
         
     ui.displayProducts(products);
-    //class used to call the saveProducts static method to add products to Local Storage
+    // Class used to call the saveProducts static method to add products to Local Storage
     Storage.saveProducts(products);
     
     }).then(()=>{
