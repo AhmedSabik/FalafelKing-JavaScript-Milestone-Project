@@ -180,6 +180,27 @@ class UI {
        cartOverlay.classList.add("transparentBcg");
        cartDOM.classList.add("showBasket");
     }
+    
+    //Update basket from local storage and change basket total
+    setupAPP() {
+        cart = Storage.getCart();
+        this.setCartValues(cart);
+        this.populateCart(cart);
+        cartBtn.addEventListener('click', this.showCart);
+        closeCartBtn.addEventListener('click', this.hideCart);
+    }
+    
+    //Populate cart method using JavaScript Array forEach() Method
+    populateCart(cart) {
+        cart.forEach(item =>this.addCartItem(item));
+    }
+    
+    //Hide cart method 
+    hideCart() {
+     cartOverlay.classList.remove("transparentBcg");
+     cartDOM.classList.remove("showBasket");   
+    }
+
 }
 
 
@@ -208,7 +229,10 @@ class Storage {
    static saveCart(cart) {
        localStorage.setItem("cart", JSON.stringify(cart));
    }
-    
+   
+   static getCart() {
+       return localStorage.getItem("cart")?JSON.parse(localStorage.getItem("cart")):[]
+   } 
 }
 
 // The HTML DOM EventListener, within instances are created, to call the functions
@@ -218,6 +242,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const ui = new UI();
     
     const products = new Products();
+    
+    // Set up Application
+    
+    ui.setupAPP();
     
     // Get all products 
     
