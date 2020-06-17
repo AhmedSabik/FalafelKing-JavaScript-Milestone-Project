@@ -200,6 +200,39 @@ class UI {
      cartOverlay.classList.remove("transparentBcg");
      cartDOM.classList.remove("showBasket");   
     }
+    
+    //Cart logic method to clear basket 
+    cartLogic() {
+       //Clear cart button
+       clearCartBtn.addEventListener("click", this.clearCart);
+       //Cart functionality
+    }
+    
+    clearCart(){
+        console.log(this);
+        
+        
+    }
+    
+    
+    //Remove item from basket method and update cart values
+    removeItem(id) {
+        cart = cart.filter(item => item.id !==id);
+        this.setCartValues(cart);
+        //Save the last value of the shopping basket
+        Storage.saveCart(cart);
+        //Update add to basket button 
+        let button = this.getSingleButton(id);
+        
+        button.disabled = false;
+        button.innerHTML = `<i class="fas fa-shopping-basket"></i>
+                        add to basket`;
+    }
+    
+    //Get the button that was used to add an item to the cart
+    getSingleButton(id) {
+        return buttonsDOM.find(button => button.dataset.id === id); 
+    }
 
 }
 
@@ -255,9 +288,12 @@ document.addEventListener("DOMContentLoaded", ()=>{
     // Class used to call the saveProducts static method to add products to Local Storage
     Storage.saveProducts(products);
     
-    }).then(()=>{
+    })
+    .then(()=>{
         
         ui.getBasketButtons(); 
+        
+        ui.cartLogic();
         
     });
     
@@ -266,4 +302,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-//2:30:00 
+//2:54:00 
