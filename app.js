@@ -204,13 +204,24 @@ class UI {
     //Cart logic method to clear basket 
     cartLogic() {
        //Clear cart button
-       clearCartBtn.addEventListener("click", this.clearCart);
+       clearCartBtn.addEventListener("click", () => {this.clearCart();});
        //Cart functionality
     }
     
     clearCart(){
-        console.log(this);
+        //to return items in shopping basket
+        let cartItems = cart.map(item => item.id);
         
+        //then remove those items from shopping basket
+        cartItems.forEach(id => this.removeItem(id));
+        
+        //Remove items when clicking clear basket button
+        while (cartContent.children.length > 0) {
+            cartContent.removeChild(cartContent.children[0]);
+        }
+        
+        //Call the hide cart method
+        this.hideCart(); 
         
     }
     
@@ -302,4 +313,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-//2:54:00 
+//3:13:00 
