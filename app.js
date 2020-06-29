@@ -226,6 +226,23 @@ class UI {
                this.setCartValues(cart);
                addAmount.nextElementSibling.innerText = tempItem.amount; 
            }
+           //Setting up subtract amount functionality for individual item
+           else if(event.target.classList.contains("fa-chevron-down")){
+               let lowerAmount = event.target;
+               let id = lowerAmount.dataset.id;
+               let tempItem = cart.find(item => item.id===id);
+               tempItem.amount = tempItem.amount - 1;
+               //Logic to remove item if lowering amount hit zero
+               if(tempItem.amount > 0){
+                   Storage.saveCart(cart);
+                   this.setCartValues(cart);
+                   lowerAmount.previousElementSibling.innerText = tempItem.amount;
+               } else{
+                   cartContent.removeChild(lowerAmount.parentElement.parentElement);
+                   this.removeItem(id);
+               }
+            
+           }
            
        });
     }
@@ -335,4 +352,4 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
 
-//3:23:00 
+//5:35:00 
