@@ -1,15 +1,17 @@
-         ___        ______     ____ _                 _  ___  
-        / \ \      / / ___|   / ___| | ___  _   _  __| |/ _ \ 
-       / _ \ \ /\ / /\___ \  | |   | |/ _ \| | | |/ _` | (_) |
-      / ___ \ V  V /  ___) | | |___| | (_) | |_| | (_| |\__, |
-     /_/   \_\_/\_/  |____/   \____|_|\___/ \__,_|\__,_|  /_/ 
- ----------------------------------------------------------------- 
+I wanted to build a site called Falafel King, on the top we have a navbar, in the navbar one icon would technically later be opened up to be a navbar for the whole site, on the right hand side is the icon that opens the shopping basket, in the shopping basket we will be able to add products. I worked during the project with a type of products that was setup locally using the JSON data. 
 
+As I am hovering over the product displayed, some of them will have add to basket, some of them will be already in the basket. The moment I click on add to basket, the shopping basket will open, in the basket I will have the items that are already in the basket, I can also close the basket, but every time I am going to be adding an item, I am going to have my shopping basket opened. 
 
-Hi there! Welcome to AWS Cloud9!
+Total amount to be paid is updated in the shopping cart. I am using a local storage, so that when the page is refreshed, the items in the shopping basket are still displayed, and the items that are in the basket cannot be added anymore. Items can be removed individually from the shopping basket. Any action taken in the shopping basket will be update in the overall total items displayed on the shopping basket icon. Clear basket button will clear the basket all together, the moment we do that we will have zero items and our total will be zero. In that case all the add to basket buttons will be updated and will be able to add them again to the shopping basket. 
 
-To get started, create some files, play with the terminal,
-or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
+Index.html structure was created as a first step. Separate file for styling was set up, a css file. Font Awesome and CSS were imported. App.js file created and a script line at the bottom of the index.html file would look for the JavaScript file, app.js. 
 
-Happy coding!
-# FalafelKing-JavaScript-Milestone-Project
+The fonts I decided to work with were imported into the CSS file, with the different sizes I needed. I decided to use CSS Custom Properties (Variables) to insert the value of a custom property, for that purpose I used the CSS :root Selector. A reset was also done (*{}) where all the elements by default had zero margin and padding and set box-sizing: border-box; so that on all elements padding and border are included in the width and height. For the whole body, font colour and background colour were referred to CSS :root Selector. Font family also selected, which was imported from Google Fonts. 
+
+The first task was to set up the nave bar, due to not being currently concerned with links or pages, the navbar menu icon will not open any menus for the time being. Div with class of “navbar-center” created where font awesome icons were placed, including the website logo and the shopping basket icon, with a hard coded number of zero items. Using position: sticky; for the navbar, starting from a top position of zero, height of navbar set, flex property used to align the navbar elements in the centre of the navbar, with the navbar always staying on top with a z-index: 1. Max width set to never get bigger than 1170px if displayed on a large screen. CSS justify-content Property used with a value of space-between to make sure navbar elements are pushed from each other as far as possible. Shopping basket button set up with position relative, where the shopping items number was set up with position absolute, with top and right values to have it positioned the way I intended in the design. 
+
+The main element of the Hero is the face logo of the Falafel King, designed on paper, scanned and uploaded. A button was also created with the text: shop now. For the whole hero class a min-height was added with a calc() function, to occupy a 100% of the screen minus the height of the nevbar. Transition property added to Shop Now button with a change in colour happening over time, but instead of hard-coding it each and every time I use it, I setup the main transition property as a variable in the CSS :root Selector. 
+
+Moving on the product section, with the title: Our Falafel Kingdom. I started by hard-coding a single product within an article element. An add to bag tag will appear once I hover over the product’s photo. For the products styling I added padding. The parent div for all the products is products-center, with a display: grid; and grid-template-columns, which specifies the number (and the widths), of columns in a grid layout. To avoid working with a Media Query, I am using the repeat() function. The repeat() CSS function represents a repeated fragment of the track list, allowing a large number of columns or rows that exhibit a recurring pattern to be written in a more compact form. Values of the repeat function is as follows: auto-fit, minmax(260px, 1fr), meaning I want my specific column to be minimum 260px, and if there is space use 1 fraction. This way the screen was set to be responsive without the need of Media Query or working with Bootstrap. 
+
+Add to shopping basket button is hidden using the transform: translate(101%); as in 101% to the right, the button is then translated all the way to the right.  
