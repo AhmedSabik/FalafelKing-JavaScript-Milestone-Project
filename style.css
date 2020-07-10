@@ -302,15 +302,14 @@ body {
 .basket-item {
     display: grid;
     align-items: center;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: 1fr 1fr auto;
     grid-column-gap: 1.5rem;
     margin: 1.5rem 0;
 }
 
 .basket-item img {
-    width: 75px;
-    height: 75px;
-}
+    object-fit: cover;
+    }
 
 .basket-item h4 {
     font-family: 'Lato', sans-serif;
