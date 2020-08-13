@@ -280,3 +280,131 @@ Hide cart method created, which is the opposite of what I did with show cart. In
      cartDOM.classList.remove("showBasket");   
     }
 
+
+Now I can close the shopping basket, with items added to the basket when clicked on. 
+Next I started working on the functionality when once I added the item to the shopping basket; I can either remove it, or increase and decrease the amount of this particular item the customer wishes to purchase, as well as clearing off the basket. 
+In the UI class I set up another method:
+ui.cartLogic();
+
+Heading back to the UI class, I set up the method: 
+cartLogic() {}
+First I selected the clear basket button, using a clearCart call back method: 
+ clearCartBtn.addEventListener("click", () => {this.clearCart();});
+
+The clear basket method is set up as follows: 
+clearCart(){
+        //to return items in shopping basket, using map method, this will allow for getting all the items
+        let cartItems = cart.map(item => item.id);
+        
+        //then remove those items from shopping basket by looping over the array from previous method, using forEach method
+        cartItems.forEach(id => this.removeItem(id));
+
+Method to remove item is then set up:
+
+clearCart(){
+        //to return items in shopping basket, using map method, this will allow for getting all the items
+        let cartItems = cart.map(item => item.id);
+        
+        //then remove those items from shopping basket by looping over the array from previous method, using forEach method
+        cartItems.forEach(id => this.removeItem(id));
+        
+        //Remove items when clicking clear basket button, by deleting the DOM element and any children it had, using removeChild method
+        while (cartContent.children.length > 0) {
+            cartContent.removeChild(cartContent.children[0]);
+        }
+        
+        //Call the hide cart method
+        this.hideCart(); 
+        
+    }
+    
+    
+    //Remove item from basket method and update cart values
+    removeItem(id) {
+        //First filter the shoing basket
+        cart = cart.filter(item => item.id !==id);
+        
+        //Get the last value availble for the basket form the previous code line
+        this.setCartValues(cart);
+        
+        //Save the last value of the shopping basket
+        Storage.saveCart(cart);
+        
+        //Update add to basket button, passing the id given from the removeItem. getSingleButton method is set up after  
+        let button = this.getSingleButton(id);
+        
+        //Disable the specific button from above
+        button.disabled = false;
+        button.innerHTML = `<i class="fas fa-shopping-basket"></i>
+                        add to basket`;
+    }
+    
+    //Get the button that was used to add an item to the cart
+    getSingleButton(id) {
+        return buttonsDOM.find(button => button.dataset.id === id); 
+    }
+
+
+
+Now I can clear the shopping basket, and the add to basket button is reactivated. 
+
+Next functionality is removing an individual item from the basket, increasing and decreasing the number of this specific item in the shopping basket. 
+cartContent.addEventListener("click", event => {
+ });
+
+This allowed me when clicking on remove to target the remove-item class. When clicking on the up arrow, I targeted the fas fa-chevron-up class, when clicking on the down arrow I targeted the fas fa-chevron-down class. 
+Then I set up the remove individual item functionality: 
+//Setting up remove item functionality
+           if(event.target.classList.contains("remove-item"))
+           {
+               let removeItem = event.target;
+               let id = removeItem.dataset.id; 
+//This removed the item from the DOM using the method removeChild
+               cartContent.removeChild (removeItem.parentElement.parentElement);
+//This removed the item from the basket 
+               this.removeItem(id); 
+               
+           }
+
+Now I can remove an individual item successfully from the shopping basket 
+
+Now using the same method: event.target.classList.contains("class name"), I set up add amount functionality for individual items in the shopping basket:
+
+//Setting up add amount functionality for individual item
+           else if(event.target.classList.contains("fa-chevron-up")){
+               let addAmount = event.target;
+               let id = addAmount.dataset.id;
+//This should allow me to get the chevron class with the item id
+               let tempItem = cart.find(item => item.id===id); 
+               tempItem.amount = tempItem.amount + 1;
+//Now to update the local storage, by calling the storage class and utilising saveCart method: 
+               Storage.saveCart(cart);
+//Now to update the shopping basket total, passing the cart that was jus updated:
+               this.setCartValues(cart);
+//Using the HTML DOM nextElementSibling Property, the total shopping basket amount is updated successfully 
+               addAmount.nextElementSibling.innerText = tempItem.amount; 
+           }
+
+This allowed me to increase the amount of each individual item successfully, in the shopping basket. 
+
+Now using the same method: event.target.classList.contains("class name"), I set up reduce amount functionality for individual items in the shopping basket:
+
+/Setting up subtract amount functionality for individual item
+           else if(event.target.classList.contains("fa-chevron-down")){
+               let lowerAmount = event.target;
+               let id = lowerAmount.dataset.id;
+               let tempItem = cart.find(item => item.id===id);
+//Logic to lower the amount of an individual item in the shopping basket
+               tempItem.amount = tempItem.amount - 1;
+               //Logic to remove item if lowering amount hit zero
+               if(tempItem.amount > 0){
+                   Storage.saveCart(cart);
+                   this.setCartValues(cart);
+//Using the HTML DOM previousElementSibling Property, the total shopping basket amount is updated successfully 
+                   lowerAmount.previousElementSibling.innerText = tempItem.amount;
+               } else{
+                   cartContent.removeChild(lowerAmount.parentElement.parentElement);
+                   this.removeItem(id);
+               }
+
+And this finalise the functionality of the shopping basket 
