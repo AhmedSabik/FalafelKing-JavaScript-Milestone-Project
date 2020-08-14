@@ -1,4 +1,6 @@
-I wanted to build a site called Falafel King, on the top we have a navbar, in the navbar one icon would technically later be opened up to be a navbar for the whole site, on the right hand side is the icon that opens the shopping basket, in the shopping basket we will be able to add products. I worked during the project with a type of products that was setup locally using the JSON data. 
+ The site is published at https://ahmedsabik.github.io/FalafelKing-JavaScript-Milestone-Project/
+ 
+ I wanted to build a site called Falafel King, on the top we have a navbar, in the navbar one icon would technically later be opened up to be a navbar for the whole site, on the right hand side is the icon that opens the shopping basket, in the shopping basket we will be able to add products. I worked during the project with a type of products that was setup locally using the JSON data. 
 
 As I am hovering over the product displayed, some of them will have add to basket, some of them will be already in the basket. The moment I click on add to basket, the shopping basket will open, in the basket I will have the items that are already in the basket, I can also close the basket, but every time I am going to be adding an item, I am going to have my shopping basket opened. 
 

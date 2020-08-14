@@ -201,11 +201,11 @@ class UI {
      cartDOM.classList.remove("showBasket");   
     }
     
-    //Cart logic method to clear basket 
+    //Cart logic method  
     cartLogic() {
        //Clear cart button
        clearCartBtn.addEventListener("click", () => {this.clearCart();});
-       //Cart functionality
+       //Shopping basket functionality
        cartContent.addEventListener("click", event => {
            //Setting up remove item functionality
            if(event.target.classList.contains("remove-item"))
@@ -248,13 +248,13 @@ class UI {
     }
     
     clearCart(){
-        //to return items in shopping basket
+        //to return items in shopping basket, using map method, this will allow for getting all the items
         let cartItems = cart.map(item => item.id);
         
-        //then remove those items from shopping basket
+        //then remove those items from shopping basket by looping over the array from previous method, using forEach method
         cartItems.forEach(id => this.removeItem(id));
         
-        //Remove items when clicking clear basket button
+        //Remove items when clicking clear basket button, by deleting the DOM element and any children it had, using removeChild method
         while (cartContent.children.length > 0) {
             cartContent.removeChild(cartContent.children[0]);
         }
@@ -267,13 +267,19 @@ class UI {
     
     //Remove item from basket method and update cart values
     removeItem(id) {
+        //First filter the shoing basket
         cart = cart.filter(item => item.id !==id);
+        
+        //Get the last value availble for the basket form the previous code line
         this.setCartValues(cart);
+        
         //Save the last value of the shopping basket
         Storage.saveCart(cart);
-        //Update add to basket button 
+        
+        //Update add to basket button, passing the id given from the removeItem. getSingleButton method is set up after  
         let button = this.getSingleButton(id);
         
+        //Disable the specific button from above
         button.disabled = false;
         button.innerHTML = `<i class="fas fa-shopping-basket"></i>
                         add to basket`;
@@ -298,7 +304,7 @@ class Storage {
     
     // Creating a static method to save products 
     static saveProducts(products){
-        //setItem() method sets the value of the specified Storage Object item
+        //setItem() method sets the value of the specified Storage Object item, products stringified
         localStorage.setItem("products", JSON.stringify(products));
     }
     
