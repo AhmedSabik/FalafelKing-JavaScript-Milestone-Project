@@ -1,4 +1,4 @@
-### RockThePalace
+### Falafel King
 
 Second Mile Stone Project: Interactive Frontend Development - Code Institute
 
@@ -8,15 +8,37 @@ This is a website built inspired by a business I had been running years ago. The
 
 The site is published at https://ahmedsabik.github.io/FalafelKing-JavaScript-Milestone-Project/
 
-Designs were done using Photoshop, then hard coded using HTML and CSS
+Designs were done using Photoshop, then hard coded using HTML and CSS as follows:
 
 ![Tux, the Linux mascot](/assets/images/design/design-1.jpg)
+![Tux, the Linux mascot](/assets/images/design/design-2.jpg)
+![Tux, the Linux mascot](/assets/images/design/design-3.jpg)
+![Tux, the Linux mascot](/assets/images/design/design-4.jpg)
+![Tux, the Linux mascot](/assets/images/design/design-5.jpg)
+
+### UX and Features 
  
 I wanted to build a site called Falafel King, on the top we have a navbar, in the navbar one icon would technically later be opened up to be a navbar for the whole site, on the right hand side is the icon that opens the shopping basket, in the shopping basket we will be able to add products. I worked during the project with a type of products that was setup locally using the JSON data. 
 
 As I am hovering over the product displayed, some of them will have add to basket, some of them will be already in the basket. The moment I click on add to basket, the shopping basket will open, in the basket I will have the items that are already in the basket, I can also close the basket, but every time I am going to be adding an item, I am going to have my shopping basket opened. 
 
 Total amount to be paid is updated in the shopping cart. I am using a local storage, so that when the page is refreshed, the items in the shopping basket are still displayed, and the items that are in the basket cannot be added anymore. Items can be removed individually from the shopping basket. Any action taken in the shopping basket will be update in the overall total items displayed on the shopping basket icon. Clear basket button will clear the basket all together, the moment we do that we will have zero items and our total will be zero. In that case all the add to basket buttons will be updated and will be able to add them again to the shopping basket. 
+
+Social media links: utilised Font Awesome icons with additional manipulation.
+
+### Technologies
+
+- HTML
+- CSS
+- JavaScript
+- AWS Cloud9
+- Gitpod
+- Adobe Photoshop
+- [Google Fonts](https://fonts.google.com)
+- [Font Awesome](https://fontawesome.com)
+- Google Chrome Developer Tools
+
+### Work Steps
 
 Index.html structure was created as a first step. Separate file for styling was set up, a css file. Font Awesome and CSS were imported. App.js file created and a script line at the bottom of the index.html file would look for the JavaScript file, app.js. 
 
@@ -422,3 +444,51 @@ Now using the same method: event.target.classList.contains("class name"), I set 
                }
 
 And this finalise the functionality of the shopping basket 
+
+### Features Left to Implement
+
+In the future I would like to populate the menu and add more products.
+
+I would also like to create more pages for the project, including a contact page and about page. I would also like to link the social media links to real pages. 
+
+urthermore, I would like to add a separate page that hosts a blog that provides daily updates of the company and new products and flavours. 
+
+Eventually, if I am to turn this to a real project, a payment functionality needs to be added. 
+
+### Testing
+
+The design of the website is responsive, and renders well on a variety of devices and screen sizes.
+
+Shop Now call to action button changes colour smoothly upon hovering, encouraging visitors to click on it. 
+
+Shopping basket button opens upon clicking, displaying zero products and zero total to be paid.
+
+When hovering over a product image, a label smoothly slides to left with a call to action message to add the product to basket.
+
+When clicking on add to basket button the button functionality is deactivited and the product is added to the basket, which automatically opens, displayed the chosen products. 
+
+User can increase the amount of the indivedual product or reduce through the arrows, or remove the individual button.
+
+To return to the home page user needs to click on the close icon on the top left side of shopping basket. User then can add any other product and follow the same functionality mentioned previously. 
+
+Total amount payable will be updated accordingly, and user will have the option to clear the whole shopping basket. Clicking the Clear Basket button will clear the basket and close it automatically, so that the user is back to the home page.
+
+All functionalites have been tested before deployment. 
+
+### Deployment
+
+This site is hosted using GitHub pages, deployed directly from the master branch. The deployed site will update automatically upon new commits to the master branch. In order for the site to deploy correctly on GitHub pages, the landing page must be named index.html.
+
+To run locally, you can clone this repository directly into the editor of your choice by pasting git clone: [https://ahmedsabik.github.io/FalafelKing-JavaScript-Milestone-Project/#](https://ahmedsabik.github.io/FalafelKing-JavaScript-Milestone-Project/#) into your terminal. To cut ties with this GitHub repository, type git remote rm origin into the terminal.
+
+### Credits
+
+#### Content
+
+- All content is written by the author of the project. 
+
+#### Media
+
+- The photos used in this site were obtained from [Shutterstock](https://www.shutterstock.com/), a stock image library. All photos have been edited and manipulated using adobe Photoshop software.
+
+**This website is for educational use.**
