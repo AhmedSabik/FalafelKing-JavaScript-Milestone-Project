@@ -11,7 +11,7 @@
             "sys": { "id": "2" },
             "fields": {
                 "title": "jalapeño & cheese",
-                "price": 12.99,
+                "price": 2.50,
                 "image": { "fields": { "file": { "url": "assets/images/product-2.jpg" } } }
             }
         },
@@ -19,7 +19,7 @@
             "sys": { "id": "3" },
             "fields": {
                 "title": "flaming hot harissa",
-                "price": 12.99,
+                "price": 2.99,
                 "image": { "fields": { "file": { "url": "assets/images/product-3.jpg" } } }
             }
         },
@@ -27,7 +27,7 @@
             "sys": { "id": "4" },
             "fields": {
                 "title": "chilli & lime",
-                "price": 2.99,
+                "price": 3.50,
                 "image": { "fields": { "file": { "url": "assets/images/product-4.jpg" } } }
             }
         },
@@ -35,7 +35,7 @@
             "sys": { "id": "5" },
             "fields": {
                 "title": "peri peri",
-                "price": 8.99,
+                "price": 3.60,
                 "image": { "fields": { "file": { "url": "assets/images/product-5.jpg" } } }
             }
         },
@@ -43,7 +43,7 @@
             "sys": { "id": "6" },
             "fields": {
                 "title": "caribbean jerk",
-                "price": 3.99,
+                "price": 2.99,
                 "image": { "fields": { "file": { "url": "assets/images/product-6.jpg" } } }
             }
         },
@@ -51,7 +51,7 @@
             "sys": { "id": "7" },
             "fields": {
                 "title": "sun dried tomato",
-                "price": 4.99,
+                "price": 3.00,
                 "image": { "fields": { "file": { "url": "assets/images/product-7.jpg" } } }
             }
         },
@@ -59,7 +59,7 @@
             "sys": { "id": "8" },
             "fields": {
                 "title": "sun ripened sweet chilli",
-                "price": 3.99,
+                "price": 3.50,
                 "image": { "fields": { "file": { "url": "assets/images/product-8.jpg" } } }
             }
         }
