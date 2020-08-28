@@ -486,6 +486,7 @@ To run locally, you can clone this repository directly into the editor of your c
 #### Content
 
 - All content is written by the author of the project. 
+- Face logo is designed and illustrated by the auther
 
 #### Media
 
